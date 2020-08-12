@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
-  resources :posts, except: [:delete]
+  resources :posts, except: [:destroy]
 end
