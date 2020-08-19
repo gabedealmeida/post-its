@@ -8,10 +8,14 @@ Rails.application.routes.draw do
 
   resources :posts, except: [:destroy] do
     member do
-      post 'vote'
+      get 'vote'
     end
 
-    resources :comments, only: [:create]
+    resources :comments, only: [:create] do
+      member do
+        get 'vote'
+      end
+    end
   end
   resources :categories, only: [:new, :create, :show]
   resources :users, only: [:show, :create, :edit, :update]
